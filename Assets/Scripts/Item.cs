@@ -7,6 +7,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     private GenerateItem _generateItem = default;
+    [Tooltip("スコア"), SerializeField] private float _scoreValue = 5f;
     
     void Start()
     {
@@ -22,6 +23,7 @@ public class Item : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.ScoreManager.AddScore(_scoreValue);
             _generateItem.Collect(gameObject);
         }
     }
