@@ -7,7 +7,8 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     private GenerateItem _generateItem = default;
-    [Tooltip("スコア"), SerializeField] private float _scoreValue = 5f;
+    [Header("スコア"), Tooltip("スコア")]
+    [SerializeField] private float _scoreValue = 5f;
     
     void Start()
     {
