@@ -13,7 +13,7 @@ public class ObjectPool : MonoBehaviour
         PrefabQueue = new Queue<GameObject>();
         for (int i = 0; i < _value; i++)
         {
-            GameObject go = Instantiate(_prefab, gameObject.transform);
+            GameObject go = Instantiate(_prefab, _spawnsParent.transform);
             PrefabQueue.Enqueue(go); //Queueに追加 
             go.SetActive(false);
         }

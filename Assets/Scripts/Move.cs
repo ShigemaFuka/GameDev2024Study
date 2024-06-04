@@ -12,6 +12,8 @@ public class Move : MonoBehaviour
     [Tooltip("左右移動範囲 0:left, 1:right")] 
     [SerializeField] private GameObject[] _rangePoints = default;
     [Tooltip("0:left, 1:right")] private float[] _rangeValues = default;
+    [Header("左右移動の速度"), Tooltip("左右移動の速度")]
+    [SerializeField] private float _lRMoveSpeed = 20f;
     
     private void Awake()
     {
@@ -46,7 +48,7 @@ public class Move : MonoBehaviour
     {
         if(_isStop) return;
         var velocity = _rigidBody.velocity;
-        _rigidBody.velocity = new Vector3(value * 30f, velocity.y, velocity.z);
+        _rigidBody.velocity = new Vector3(value * _lRMoveSpeed, velocity.y, velocity.z);
     }
 
     /// <summary> 左右移動範囲の制限 </summary>
