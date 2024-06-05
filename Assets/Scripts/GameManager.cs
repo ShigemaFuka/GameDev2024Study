@@ -1,10 +1,8 @@
-using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     #region 変数
     
-    public static GameManager Instance = default;
     private ScoreManager _scoreManager = default;
     
     #endregion
@@ -15,9 +13,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
     
-    void Awake()
+    protected override void OnAwake()
     {
-        if (!Instance) Instance = this;
         _scoreManager = FindObjectOfType<ScoreManager>();
     }
     
